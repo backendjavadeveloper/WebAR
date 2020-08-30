@@ -1,0 +1,9 @@
+{
+    "liveServer.settings.https": {
+        "enable": true,
+        "cert": "/Users/deepak/Documents/GitHub/WebAR/BasicsWebAR/certificates/localhost.pem",
+        "key": "/Users/deepak/Documents/GitHub/WebAR/BasicsWebAR/certificates/localhost.key",
+        "passphrase": "password"
+    },
+    "liveServer.settings.port": 5501
+}

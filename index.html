@@ -1,7 +1,54 @@
-<!DOCTYPE html>
 <html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+
+    <script>
+        AFRAME.registerComponent('journey-details-listener', {
+            init: function () {
+                var lastIndex = -1;
+                var visible = ['true', 'false'];
+
+                document.addEventListener('click', function (event) {
+                    var box = document.getElementById("journey-details");
+                    lastIndex = (lastIndex + 1) % visible.length;
+                    if (visible[lastIndex] === 'true') {
+                        console.log('I was clicked');
+                        document.querySelector('#journey-details').emit('journeyDetailsAnimation');
+                    }
+                    box.setAttribute('visible', `${visible[lastIndex]}`)
+                });
+            }
+        });
+    </script>
+</head>
+
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <a-scene embedded arjs>
+        <a-assets>
+            <img id="journeySummaryImage" src="./images/journey-summary.png">
+            </img>
+            <img id="journeyDetails" src="./images/journey-details.png">
+            </img>
+
+        </a-assets>
+
+        <!-- <a-marker preset='custom' type='pattern' url='./patterns/train-ticket.patt'> -->
+        <a-marker preset='hiro'>
+
+            <a-entity id="journey-details" journey-details-listener geometry="primitive: box; height: 0.1;"
+                material="shader: flat; src: #journeySummaryImage" visible="false" scale="2 2 2"
+                animation="property: position; from: 0 0 0; to: 2 0 0; dur: 1000; easing: linear; loop: false ; startEvents: journeyDetailsAnimation;">
+            </a-entity>
+
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
 </body>
+
 </html>

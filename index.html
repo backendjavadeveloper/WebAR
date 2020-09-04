@@ -27,7 +27,7 @@
             init: function() {
                 var data = this.data;
                 var el = this.el;
-                el.addEventListener('touchmove', function() {
+                el.addEventListener('ontouchstart', function() {
                     window.open(data.url, '_blank');
                 });
             }

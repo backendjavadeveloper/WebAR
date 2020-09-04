@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Business Card</title>
+    <title>Business Card2</title>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
     <script>
@@ -16,7 +16,7 @@
             init: function() {
                 var data = this.data;
                 var el = this.el;
-                el.addEventListener('click', function() {
+                el.addEventListener('mouseenter', function() {
                     window.open(data.url, '_blank');
                 });
             }
@@ -53,7 +53,7 @@
         <!-- <a-camera>
             <a-cursor></a-cursor>
         </a-camera> -->
-        <a-entity camera look-controls>
+        <a-entity camera look-controls="false">
                 <a-entity cursor="fuse: true; fuseTimeout: 500"
                           position="0 0 -1"
                           geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
